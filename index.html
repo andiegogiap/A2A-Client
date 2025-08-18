@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2A Client Dashboard</title>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #root {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            background: linear-gradient(to bottom right, #101010, #1C1C1C); /* Dark Grey */
+            color: #e5e7eb; /* Neutral 200 */
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #101010; /* Black background */
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ffffff; /* White thumb */
+            border-radius: 5px;
+            box-shadow: 0 0 5px #00BFFF, 0 0 8px #00BFFF; /* Neon blue glow */
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #f0f0f0;
+            box-shadow: 0 0 10px #00BFFF, 0 0 15px #00BFFF;
+        }
+
+        @keyframes flash-text {
+            0%, 100% { opacity: 1; text-shadow: 0 0 10px currentColor; }
+            50% { opacity: 0.5; text-shadow: none; }
+        }
+
+        @keyframes pulse-border {
+            0% { border-color: rgba(191, 0, 255, 0.4); box-shadow: 0 0 0px rgba(191, 0, 255, 0); }
+            50% { border-color: rgba(191, 0, 255, 1); box-shadow: 0 0 20px rgba(191, 0, 255,0.7); }
+            100% { border-color: rgba(191, 0, 255, 0.4); box-shadow: 0 0 0px rgba(191, 0, 255,0); }
+        }
+
+        .animate-flash {
+            animation: flash-text 1.5s infinite;
+        }
+
+        .animate-pulse-border {
+            animation: pulse-border 2s infinite ease-in-out;
+        }
+        
+        .dragging {
+            opacity: 0.5;
+            border: 2px dashed #00BFFF;
+        }
+    </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { // Neon Blue
+              DEFAULT: '#00BFFF', '50': '#E0F7FF', '100': '#B3EFFF', '200': '#80E7FF', '300': '#4DDFFF', '400': '#26D7FF', '500': '#00BFFF', '600': '#00A6E6', '700': '#008CBF', '800': '#007399', '900': '#005973', '950': '#003340',
+            },
+            secondary: { // Neon Purple
+              DEFAULT: '#BF00FF', '50': '#F4E0FF', '100': '#E9B3FF', '200': '#DE80FF', '300': '#D44DFF', '400': '#C926FF', '500': '#BF00FF', '600': '#AB00E6', '700': '#8F00BF', '800': '#740099', '900': '#580073', '950': '#330040',
+            },
+            pink: { // Neon Pink
+              DEFAULT: '#FF1493', '50': '#FFEBF4', '100': '#FFD7EA', '200': '#FFBFE0', '300': '#FFA8D6', '400': '#FF90CC', '500': '#FF1493', '600': '#E61284', '700': '#BF0F6E', '800': '#990C58', '900': '#730942', '950': '#400524',
+            },
+            accent: { // Neon Green
+               DEFAULT: '#39FF14', '50': '#EBFEEA', '100': '#D7FFD9', '200': '#BFFFC2', '300': '#A8FFAC', '400': '#90FF95', '500': '#39FF14', '600': '#33E612', '700': '#2CBF0F', '800': '#24990C', '900': '#1C7309', '950': '#104005',
+            },
+            neutral: { // Dark Grey
+                DEFAULT: '#A0A0A0', '50': '#F0F0F0', '100': '#E0E0E0', '200': '#C7C7C7', '300': '#A0A0A0', '400': '#8A8A8A', '500': '#666666', '600': '#4F4F4F', '700': '#3C3C3C', '800': '#2A2A2A', '900': '#1C1C1C', '950': '#101010'
+            },
+          },
+          fontFamily: {
+             sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+      plugins: [],
+    }
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.10.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "js-yaml": "https://esm.sh/js-yaml@4.1.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11.3.8",
+    "monaco-editor": "https://esm.sh/monaco-editor@0.49.0?external=vscode"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root" class="p-4 sm:p-6 lg:p-8"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

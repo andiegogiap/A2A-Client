@@ -1,5 +1,5 @@
 {
-  "name": "Copy of A2A Client Dashboard",
+  "name": "A2ACD-A2A Client Dashboard",
   "description": "An advanced dashboard for managing and orchestrating a family of AI agents, featuring a chat interface, a command-line control panel, and detailed agent configuration options. This application allows for dynamic agent management, task delegation, and real-time interaction with AI services.",
   "requestFramePermissions": [],
   "prompt": ""
